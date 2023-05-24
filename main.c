@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	char *filename = av[1];
 
 	free_memory.fp = fopen(filename, "r");
-	if (argc != 2)
+	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -33,7 +33,7 @@ int main(int ac, char **av)
 	while (line_size >= 0)
 	{
 		line_number++;
-		opcode_selector(&stack, line_number);
+		op_selector(&stack, line_number);
 		line_size = getline(&free_memory.line, &len, free_memory.fp);
 	}
 

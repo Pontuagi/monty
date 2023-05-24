@@ -5,7 +5,7 @@
   */
 void free_file(void)
 {
-	free(free_memory.tmp);
+	free(free_memory.temp);
 	free(free_memory.line);
 	fclose(free_memory.fp);
 }

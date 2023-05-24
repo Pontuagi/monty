@@ -10,21 +10,19 @@ void op_selector(stack_t **stack, unsigned int line_number)
 	int target = 0, idx = 0;
 	char *token = strdup(free_memory.line);
 
-	instruction_t op[] = {{"push", push}, {"pint", pint}, {"pall", pall},
-	{"pop", pop}, {"swap", swap}, {"sub", sub}, {"nop", nop}, {"div", div},
-	{"mod", mod}, {"mul", mul}, {"add", add}, {"pchar", pchar}, {"pstr", pstr},
-	{"rotl", rotl}, {NULL, NULL}};
+	instruction_t op[] = {{"push", opcode_push}, {"pint", pint}, {"pall", opcode_pall},
+	{NULL, NULL}};
 
 	free_memory.temp = token;
 	token = strtok(token, DELIMITERS);
 	if (token == NULL)
 	{
-		free(free_memory.temp)
+		free(free_memory.temp);
 		return;
 	}
 	else if (token[0] != '\0' && token[0] == '#')
 	{
-		free(free_memory.temp)
+		free(free_memory.temp);
 		return;
 	}
 	/*iterate*/

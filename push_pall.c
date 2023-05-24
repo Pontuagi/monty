@@ -13,17 +13,21 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = NULL;
 	int no = 0;
 
-	new_tok = strtok(free_memory.line, DELIMITERS);
-	if (new_tok == NULL)
+	tok = strtok(free_memory.line, DELIMITERS);
+	if (tok == NULL)
 	{
-		free_fileliber();
+		free_file();
 		free_stack(stack);
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	while (tok[no] != '\0')
 	{
-		if ((tok[no] < '0' || tok[no] > '9') && tok[no] != '-')
+		if ((no == 0 && tok[no] == '-') || (tok[no] >= '0' && tok[no] <= '9'))
+		{
+			no++;
+		}
+		else
 		{
 		free_file();
 		free_stack(stack);
@@ -43,10 +47,10 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	new_node->next = NULL;
 	if (*stack != NULL)
 	{
-		new_next = *stack;
-		(*stack)->new;
+		new_node->next = *stack;
+		(*stack)->prev = new_node;
 	}
-	*stack = new;
+	*stack = new_node;
 }
 
 /**
@@ -58,14 +62,14 @@ void opcode_push(stack_t **stack, unsigned int line_number)
   */
 void opcode_pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *printer = stack;
+	stack_t *printer = *stack;
 	(void)line_number;
 
 	if (stack == NULL || *stack == NULL)
 		return;
 	while (printer != NULL)
 	{
-		printf("%d\n", print_stack->n);
-		print_stack = print_stack->next;
+		printf("%d\n", printer->n);
+		printer = printer->next;
 	}
 }
