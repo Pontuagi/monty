@@ -11,7 +11,7 @@ void free_file(void)
 }
 
 /**
-  * free_memory - free memory space
+  * free_stack - free memory space
   * @stack: head of a stack
   */
 void free_stack(stack_t **stack)
@@ -20,8 +20,8 @@ void free_stack(stack_t **stack)
 
 	while ((*stack) != NULL)
 	{
-		temp = *stack;
-		*stack = (*stack)->next;
+		temp = (*stack);
+		(*stack) = (*stack)->next;
 		free(temp);
 	}
 	free((*stack));

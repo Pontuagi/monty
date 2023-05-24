@@ -10,8 +10,8 @@ void op_selector(stack_t **stack, unsigned int line_number)
 	int target = 0, idx = 0;
 	char *token = strdup(free_memory.line);
 
-	instruction_t op[] = {{"push", opcode_push}, {"pint", pint}, {"pall", opcode_pall},
-	{NULL, NULL}};
+	instruction_t op[] = {{"push", opcode_push}, {"pint", pint},
+	{"pall", opcode_pall}, {NULL, NULL}};
 
 	free_memory.temp = token;
 	token = strtok(token, DELIMITERS);
@@ -38,7 +38,7 @@ void op_selector(stack_t **stack, unsigned int line_number)
 	}
 	if (target == 0)
 	{
-		fprintf(stderr, "L%u: unknown institution %s\n", line_number, token);
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
 		free_file();
 		free_stack(stack);
 		exit(EXIT_FAILURE);

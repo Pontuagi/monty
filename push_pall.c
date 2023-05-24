@@ -1,10 +1,8 @@
 #include "monty.h"
-
 /**
   * opcode_push - push an element into a stack
   * @stack: top of stack
   * @line_number: line number in stack
-  *
   * Return: nothing
   */
 void opcode_push(stack_t **stack, unsigned int line_number)
@@ -15,6 +13,9 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 
 	tok = strtok(free_memory.line, DELIMITERS);
 	if (tok == NULL)
+		return;
+	tok = strtok(NULL, DELIMITERS);
+	if (tok == NULL)
 	{
 		free_file();
 		free_stack(stack);
@@ -23,11 +24,7 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	}
 	while (tok[no] != '\0')
 	{
-		if ((no == 0 && tok[no] == '-') || (tok[no] >= '0' && tok[no] <= '9'))
-		{
-			no++;
-		}
-		else
+		if ((tok[no] < '0' || tok[no] > '9') && tok[no] != '-')
 		{
 		free_file();
 		free_stack(stack);
@@ -52,7 +49,6 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	}
 	*stack = new_node;
 }
-
 /**
   * opcode_pall - print all the values of the stack starting from the top
   * @stack: top of stack

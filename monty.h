@@ -63,7 +63,6 @@ void op_selector(stack_t **stack, unsigned int line_number);
 void opcode_push(stack_t **stack, unsigned int line_number);
 void opcode_pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
-char *strdup(const char *str);
 void free_stack(stack_t **stack);
 void free_file(void);
 
