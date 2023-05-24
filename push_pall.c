@@ -1,29 +1,24 @@
 #include "monty.h"
 
 /**
+  * opcode_push - push an element into a stack
+  * @stack: top of stack
+  * @line_number: line number in stack
+  * @value: element to push to stack
   *
+  * Return: nothing
   */
-void push(stack_t **stack, unsigned int line_number)
+void opcode_push(stack_t **stack, unsigned int line_number, char *value)
 {
-	stack_t *new_node;
-	int num;
-	
-	num = atoi(x);
-	if (num != 0)
-	{
-		new_node = (new_node*)malloc(sizeof(stack_t));
-		if (new_node == NULL)
+}
 
-		new_node->n = num;
-		new_node->prev = NULL;
-		new_node->next = top;
-
-
-
-	}
-	else
-	{
-		printf("L%d: usage: push integer\n", x);
-		exit(EXIT_FAILURE);
-	}
+/**
+  * opcode_pall - print all the values of the stack starting from the top
+  * @stack: top of stack
+  * @line_number: line number of stack
+  *
+  * Return: nothing
+  */
+void opcode_pall(stack_t **stack, unsigned int line_number)
+{
 }

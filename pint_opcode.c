@@ -10,6 +10,7 @@
 
 void pint(stack_t **stack, unsigned int line_number)
 {
+<<<<<<< HEAD
 	stack_t *tmp = *stack;
 	/*checks if the stack is empty, else prints value*/
 	if (stack == NULL || *stack == NULL)
@@ -25,4 +26,6 @@ void pint(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 
 	printf("%d\n", (*stack)->n);
+=======
+>>>>>>> f38068e8222f1bacdf6b0b7653cc7cc7ddba3446
 }
