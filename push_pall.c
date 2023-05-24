@@ -16,8 +16,8 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	new_tok = strtok(free_memory.line, DELIMITERS);
 	if (new_tok == NULL)
 	{
-		jutsu_liber();*
-		kai(stack);*
+		free_fileliber();
+		free_stack(stack);
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
@@ -25,8 +25,8 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	{
 		if ((tok[no] < '0' || tok[no] > '9') && tok[no] != '-')
 		{
-		jutsu_liber();*
-		kai(stack);*
+		free_file();
+		free_stack(stack);
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 		}
