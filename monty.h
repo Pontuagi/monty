@@ -4,7 +4,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
+#define DELIMITERS " \t\n"
+
+/**
+* struct ez - to free memory
+* @line: line
+* @temp: temporary
+* @fp: file
+*/
+typedef struct ez
+{
+	char *line, *temp;
+	FILE *fp;
+} carry;
+extern carry free_memory;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,7 +55,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(int x);
-void pall();
+
+
+void opcode_selector(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 #endif
