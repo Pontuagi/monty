@@ -57,7 +57,7 @@ typedef struct instruction_s
 
 
 
-void opcode_selector(stack_t **stack, unsigned int line_number);
+void op_selector(stack_t **stack, unsigned int line_number)
 void opcode_push(stack_t **stack, unsigned int line_number);
 void opcode_pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
