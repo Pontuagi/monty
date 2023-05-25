@@ -65,5 +65,4 @@ void opcode_pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 void free_file(void);
-
 #endif
