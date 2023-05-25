@@ -14,7 +14,7 @@ void add(stack_t **stack, unsigned int line_number)
 	int y = 0;
 	int temp = 0;
 
-	if (stack_len(stack) < 2)
+	if (stack_count(stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
@@ -24,6 +24,6 @@ void add(stack_t **stack, unsigned int line_number)
 	y = (*stack)->next->n;
 
 	temp = x + y;
-	pop(stack, line_number);
+	pop_opcode(stack, line_number);
 	(*stack)->n = temp;
 }

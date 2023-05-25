@@ -7,12 +7,10 @@
   */
 void swap_opcode(stack_t **stack, unsigned int line_number)
 {
-	int first;
-	int second;
-	size_t count;
+	int first = 0;
+	int second = 0;
 
-	count = stack_count(stack);
-	if (count < 2)
+	if (stack_count(stack) < 2)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);

@@ -9,7 +9,7 @@
 size_t stack_count(stack_t **stack)
 {
 	stack_t *temp = *stack;
-	size_t count = 0;
+	unsigned int count = 0;
 
 	while (temp != NULL)
 	{

@@ -8,15 +8,14 @@
 void pop_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
-	stack_t *head = *stack;
 
-	if (*head == NULL || head == NULL)
+	if (*stack == NULL || stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = head->next;
-	free(head);
+	temp = (*stack)->next;
+	free(*stack);
 	*stack = temp;
 }
