@@ -65,11 +65,9 @@ void opcode_pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 void free_file(void);
-<<<<<<< HEAD
-=======
 size_t stack_count(stack_t **stack);
 void pop_opcode(stack_t **stack, unsigned int line_number);
 void swap_opcode(stack_t **stack, unsigned int line_number);
-
->>>>>>> cb5bd632b556d480aca9aa08657e820b233da786
+void nop(stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, unsigned int line_number)
 #endif
