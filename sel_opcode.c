@@ -12,7 +12,7 @@ void op_selector(stack_t **stack, unsigned int line_number)
 
 	instruction_t op[] = {{"push", opcode_push}, {"pint", pint},
 	{"pall", opcode_pall}, {"pop", pop_opcode}, {"swap", swap_opcode},
-	{"add", add}, {NULL, NULL}};
+	{"add", add}, {"sub", sub_opcode}, {NULL, NULL}};
 
 	free_memory.temp = token;
 	token = strtok(token, DELIMITERS);
