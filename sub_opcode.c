@@ -12,7 +12,7 @@ void sub_opcode(stack_t **stack, unsigned int line_number)
 	int i = 0;
 
 	temp = *stack;
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (*stack == NULL || temp == NULL || (*stack)->next == NULL)
 	{
 		free_file();
 		free_stack(stack);
