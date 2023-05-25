@@ -5,7 +5,7 @@
 * @line_number: line count
 * Return: Void
 */
-void _div(stack_t **stack, unsigned int line_number)
+void div_opcode(stack_t **stack, unsigned int line_number)
 {
 	int results;
 
