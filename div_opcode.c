@@ -7,30 +7,23 @@
 */
 void _div(stack_t **stack, unsigned int line_number)
 {
-	int i = 0;
-	stack_t *result;
+	int results;
 
-	result = *stack;
-	if ((*stack) == NULL || result == NULL || (*stack)->next == NULL)
+	if (!stack || !(*stack) || !(*stack)->next)
 	{
-		free_file();
-		free_stack(stack);
-
-		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	i = result->n;
-	if (i == 0)
+	if (((*stack)->n) == 0)
 	{
-		free_file();
-		free_stack(stack);
-
-		fprintf(stderr, "L%u: division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
+		;
+		return;
 	}
 
-	(*stack) = (*stack)->next;
-	(*stack)->n = (*stack)->n / i;
-	free(result);
+	results = ((*stack)->next->n) / ((*stack)->n);
+	pop_opcode(stack, line_number);
+	(*stack)->n = results;
 }
