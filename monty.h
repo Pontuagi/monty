@@ -70,5 +70,7 @@ void pop_opcode(stack_t **stack, unsigned int line_number);
 void swap_opcode(stack_t **stack, unsigned int line_number);
 /*void nop(stack_t **stack, unsigned int line_number);*/
 void add(stack_t **stack, unsigned int line_number);
+void sub_opcode(stack_t **stack, unsigned int line_number);
+
 
 #endif
